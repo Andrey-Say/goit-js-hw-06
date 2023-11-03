@@ -1,4 +1,9 @@
 const inputEl = document.querySelector('#validation-input');
-console.log('inputEl:', inputEl);
 
-inputEl.addEventListener('blur');
+inputEl.addEventListener('blur', onValidationInput);
+
+function onValidationInput(evt) {
+  evt.currentTarget.value.length <= evt.currentTarget.dataset.length
+    ? inputEl.classList.add('valid')
+    : inputEl.classList.add('invalid');
+}
