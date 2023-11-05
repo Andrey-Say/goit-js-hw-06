@@ -10,11 +10,18 @@ function onFormSubmit(event) {
   const email = event.currentTarget.elements.email.value;
   const password = event.currentTarget.elements.password.value;
 
-  email === '' || password === ''
-    ? alert('Fields must be completed')
-    : (userInfo.email = email),
-    (userInfo.password = password);
+  // email === '' || password === ''
+  //   ? alert('Fields must be completed')
+  //   : (userInfo.email = email),
+  //   (userInfo.password = password);
 
+  if (email === '' || password === '') {
+    alert('Fields must be completed');
+    return;
+  }
+
+  userInfo.email = email;
+  userInfo.password = password;
   event.currentTarget.reset();
 }
 console.log(userInfo);
