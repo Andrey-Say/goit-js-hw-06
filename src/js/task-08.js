@@ -2,26 +2,21 @@ const formEl = document.querySelector('.login-form');
 
 formEl.addEventListener('submit', onFormSubmit);
 
-const userInfo = {};
-
 function onFormSubmit(event) {
   event.preventDefault();
 
   const email = event.currentTarget.elements.email.value;
   const password = event.currentTarget.elements.password.value;
 
-  // email === '' || password === ''
-  //   ? alert('Fields must be completed')
-  //   : (userInfo.email = email),
-  //   (userInfo.password = password);
-
-  if (email === '' || password === '') {
+  if (email === ''.trim() || password === ''.trim()) {
     alert('Fields must be completed');
     return;
   }
 
+  const userInfo = {};
+
   userInfo.email = email;
   userInfo.password = password;
   event.currentTarget.reset();
+  return;
 }
-console.log(userInfo);
